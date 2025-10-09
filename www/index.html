@@ -163,13 +163,19 @@
 
     // Alarmの処理
     function alarm(){
-        
+    var canvas = $("#mycanvas")[0];
+    var ctx = canvas.getContext("2d");
+    var img = new Image(); 　
+    img.src = "ksuisbg.gif";
+    img.onload = function() {
+     ctx.drawImage(img, 0, 0, 300, 300);
+     };
         
     }
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
-        
+    
         
     }
 
@@ -207,5 +213,6 @@
     <button id="btnC">ButtonC</button>  
     <input type="number" id="minute" value=3 >
     <input type="number" id="second" value=0 >
+
 </body>
 </html>
