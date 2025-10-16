@@ -170,7 +170,7 @@
     function alarm(){
     var canvas = $("#mycanvas")[0];
     var ctx = canvas.getContext("2d");
-    var img = new Image(); 　
+    var img = new Image(); 
     img.src = "ksuisbg.gif";
     img.onload = function() {
      ctx.drawImage(img, 0, 0, 300, 300);
@@ -197,11 +197,11 @@
     function btnCClick(e){
         alarm();
         active = false;
-        period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
-        $("#time").html("経過時間： 0");　
+        period = 5* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
+        $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
         var audio = new Audio();
-        audio.src = "pin.wav";　
+        audio.src = "pin.wav";
         audio.play();
     }
     
@@ -210,15 +210,15 @@
     function timer(){
         if (active) {
             etime = parseInt( (new Date() - startTime)/1000 );
-             rest = period - etime;　
+             rest = period - etime;
              $("#time").html("経過時間： " + etime);
-                $("#remain").html("残り時間： " + rest);
-            analog(rest);
-        }
-
-
-        
-        
+             $("#remain").html("残り時間： " + rest);
+             analog(rest);
+             if(rest<=0){
+                active=false;
+                alarm();
+            }
+        }  
     } 
 
   </script>
@@ -231,7 +231,7 @@
 
     <div id="remain">Remaining time</div>
     <div id="time">Time</div>
-    <button id="btnA">ButtonA</button>  
+    <button id="btnA">Start</button>  
     <button id="btnB">ButtonB</button>  
     <button id="btnC">ButtonC</button>  
     <input type="number" id="minute" value=3 >
