@@ -197,7 +197,7 @@
     function btnCClick(e){
         alarm();
         active = false;
-        period = 5* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
+        period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
         var audio = new Audio();
@@ -234,8 +234,8 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>  
-    <input type="number" id="minute" value=3 >
-    <input type="number" id="second" value=0 >
+    <input type="number" id="minute" value=0 >
+    <input type="number" id="second" value=15 >
 
 </body>
 </html>
