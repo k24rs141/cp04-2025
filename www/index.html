@@ -14,11 +14,12 @@
 
   </style>
   <script>
-      // 現在時刻を1秒ごとに更新する
-setInterval(function() {
+      // 現在時刻を1秒ごとに更新する。
+setInterval//一定の間隔で同じ処理を繰り返す.
+(function() {
   var now = new Date();
   var h = now.getHours();
-  var m = ("0" + now.getMinutes()).slice(-2);
+  var m = ("0" + now.getMinutes()).slice(-2);//２桁にそろえる。
   var s = ("0" + now.getSeconds()).slice(-2);
   $("#nowtime").html("現在時刻：" + h + ":" + m + ":" + s);
 }, 1000);
@@ -237,7 +238,7 @@ setInterval(function() {
   </script>
 </head>
 <body>
-    <div id="nowtime" style="font-weight:bold; font-size:18px; text-align:center;">現在時刻：</div>
+    <div id="nowtime" style="font-weight:bold; font-size:30px; text-align:center;">現在時刻：</div>
 
     <canvas id="mycanvas" width="200" height="200">Test</canvas>
     <body style="background-color: skyblue;">
