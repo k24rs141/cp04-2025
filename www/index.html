@@ -14,6 +14,15 @@
 
   </style>
   <script>
+      // 現在時刻を1秒ごとに更新する
+setInterval(function() {
+  var now = new Date();
+  var h = now.getHours();
+  var m = ("0" + now.getMinutes()).slice(-2);
+  var s = ("0" + now.getSeconds()).slice(-2);
+  $("#nowtime").html("現在時刻：" + h + ":" + m + ":" + s);
+}, 1000);
+
     // timer処理
     $(function(){
         setInterval(function(){
@@ -62,6 +71,7 @@
         var str = "0"+x.toString(10);
         return str.substring(str.length-2);        
     }
+    
 
     var debug = false;
     // Statusがクリックされた時の処理
@@ -156,6 +166,10 @@
     var rest = 0;
     var etime = 0
 
+    //現在時刻
+    var nowDate=new Date();
+    console.log(nowDate);
+
 
     
     // ボタンの初期設定
@@ -163,7 +177,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
-        
+       
     }
 
     // Alarmの処理
@@ -204,7 +218,6 @@
         audio.src = "pin.wav";
         audio.play();
     }
-    
  
     // 繰り返し実行する処理
     function timer(){
@@ -224,6 +237,8 @@
   </script>
 </head>
 <body>
+    <div id="nowtime" style="font-weight:bold; font-size:18px; text-align:center;">現在時刻：</div>
+
     <canvas id="mycanvas" width="200" height="200">Test</canvas>
     <body style="background-color: skyblue;">
     <style>
@@ -257,11 +272,11 @@
   button {
     color: blue;
     font-family: "Times New Roman", Times, serif;
-    border-radius: 20px;
+    border-radius: 50px;
   }
 
   #btnA {
-    background-color: yellow;
+    background-color: white;
     color: green;
   }
 
@@ -291,6 +306,7 @@
     <button id="btnC">Set</button>  
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
+    
 
 
 </body>
